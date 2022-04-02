@@ -34,14 +34,11 @@
     <div class="form-group">
         <label for="password">Пароль</label>
         <input type="password" class="form-control @error('fname') border border-danger @enderror" id="password" name="password" placeholder="Пароль">
-        @error('password')
-        <p class="text-danger">{{ $message }}</p>
-        @enderror
     </div>
     <div class="form-group">
         <label for="password_confirmation">Подтверждение пароля</label>
         <input type="password" class="form-control @error('fname') border border-danger @enderror" id="password_confirmation" name="password_confirmation" placeholder="Подтверждение пароля">
-        @error('password_confirmation')
+        @error('password')
         <p class="text-danger">{{ $message }}</p>
         @enderror
     </div>

@@ -10,10 +10,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/logout', 'App\Http\Controllers\AuthController@logout')->name('logout');
 });
 
-Route::get('/linkstorage', function () {
-    Artisan::call('storage:link');
-});
-
 Route::get('/cache', function () {
     Artisan::call('config:cache');
 });
@@ -29,6 +25,5 @@ Route::middleware('guest')->group(function () {
 Route::get('/categories', 'App\Http\Controllers\CategoryController@index')->name('categories.index');
 Route::get('/categories/{id}', 'App\Http\Controllers\CategoryController@show')->name('categories.show');
 
-//Route::get('/categories', 'App\Http\Controllers\CategoryController@index')->name('categories.index');
 Route::get('/educenter/{id}', 'App\Http\Controllers\EducenterController@show')->name('educenters.show');
 

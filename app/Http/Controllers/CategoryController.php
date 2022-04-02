@@ -9,7 +9,7 @@ use App\Models\Educenter;
 class CategoryController extends Controller
 {
     public function index() {
-        $categories = Category::orderBy('name', 'ASC')->get();
+        $categories = Category::query()->orderBy('name', 'ASC')->select(['name', 'id'])->get();
 
         return view('categories.index', [
             'categories' => $categories,
@@ -18,18 +18,12 @@ class CategoryController extends Controller
 
     public function show($id) {
         $eduCentersId = EducenCat::query()->select(['educenter_id'])->where(['category_id' => $id])->get();
-        //dd($eduCentersId);
         $eduCenters = collect();
         foreach ($eduCentersId as $eduCenterId) {
             $temp = Educenter::query()->where(['id' => $eduCenterId->educenter_id])->first();
-            //array_push($eduCenters, $temp);
             $eduCenters->add($temp);
         }
-        $categoryName = Category::where(['id' => $id])->first();
-
-        /*if($eduCen) {
-
-        }*/
+        $categoryName = Category::where(['id' => $id])->select(['name'])->first();
 
         return view('educenters.index', [
             'eduCenters' => $eduCenters,

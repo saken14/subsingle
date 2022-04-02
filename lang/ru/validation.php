@@ -116,6 +116,13 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'fname' => 'имя',
+        'lname' => 'фамилия',
+        'password' => 'пароль',
+        'bdate' => 'дата рождения',
+        'phone_num' => 'номер телефона',
+        'u_gender' => 'пол',
+    ],
 
 ];
