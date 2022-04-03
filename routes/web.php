@@ -23,7 +23,8 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::get('/categories', 'App\Http\Controllers\CategoryController@index')->name('categories.index');
-Route::get('/categories/{id}', 'App\Http\Controllers\CategoryController@show')->name('categories.show');
+Route::get('/categories/{symbol_code}', 'App\Http\Controllers\CategoryController@show_categories')->name('subcategories.show');
+Route::get('/categories/{symbol_code}/{id}', 'App\Http\Controllers\CategoryController@show')->name('categories.show');
 
 Route::get('/educenter/{id}', 'App\Http\Controllers\EducenterController@show')->name('educenters.show');
 

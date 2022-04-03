@@ -16,7 +16,9 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->text('name');
-            $table->timestamps();
+            $table->foreignId('section_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

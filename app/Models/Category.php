@@ -10,10 +10,15 @@ class Category extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
+        'section_symbol_code'
     ];
 
     public function educen_cat() {
         $this->hasMany(EducenCat::class)->orderBy('created_at');
+    }
+
+    public function section() {
+        return $this->belongsTo(Section::class);
     }
 }

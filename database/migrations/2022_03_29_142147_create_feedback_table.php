@@ -18,7 +18,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('educenter_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->text('text');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

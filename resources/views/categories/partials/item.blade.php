@@ -1,4 +1,4 @@
 
-<a href="{{ route('categories.show', $category->id) }}">
+<a href="{{ route('subcategories.show', $category->symbol_code) }}">
     {{ $category->name }}
 </a><br>

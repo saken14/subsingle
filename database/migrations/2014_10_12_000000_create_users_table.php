@@ -24,7 +24,8 @@ return new class extends Migration
             $table->text('phone_num');
             $table->string('u_gender');
             $table->rememberToken();
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 
